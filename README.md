@@ -9,5 +9,4 @@ A Gradient Boosting Regressor was also trained. CV grid search was used to find 
 
 **Review results, evaluate models**
 
-Cross_val_score in sklearn module was used to evaluate the root mean-squared error, using a 5-fold cross -validation design.Based on the cross validation RMSE, the random forest and gradient boosting regressors outperforms the linear regression models.![image](https://user-images.githubusercontent.com/64564704/137858988-999e4e85-1b15-4ec7-aee6-573820a58565.png)
-
+Cross_val_score in sklearn module was used to evaluate the root mean-squared error, using a 5-fold cross -validation design.Based on the cross validation RMSE, the random forest and gradient boosting regressors outperforms the linear regression models.
