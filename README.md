@@ -1,14 +1,13 @@
 # random-forest-house-price
 Random forest and gradient boosting were applied to model the house price project on Kaggle
 
-The appropriate hyper-parameters for fitting the random forest were found using randomized search CV. 
-The criterion of ‘entropy’ and ‘gini’, as well as number of estimators ranging from 100 to 200 were explored. 
-Using cv=5 and 2 iterations, the randomized search suggests 200 estimators and Gini as classification criterion.
+Two linear regression models were trained: simple linear model and Ridge regression model, with alpha=70. 
 
-Then a Random Forest Classifier was trained using all training set. The fitting took 71 seconds. 
-Prediction was made using this classifier and will later be compared to other model’s predictions.
+A random forest model was also trained, setting n_estimators = 500, and max_features = 4 because 19 features were studied. 
 
-A second approach combined the training and testing set for a principal components analysis. 
-The combined data set was scaled using standard scaler before fitting. The PCA was fitted to account for 95% of variability. 
-The result PCA contains 332 features (comparing to 784 in raw data), and the fitting took 8 seconds.
-A second random forest was trained based on the PCA transformed training set. The new model fitting took 44 seconds.
+A Gradient Boosting Regressor was also trained. CV grid search was used to find proper parameters. Combinations of n_estimators = [100, 200, 300, 400, 500] and learning_rate = [0.0001, 0.001, 0.01, 0.1] were searched, with max_features = 4 set. Using neg_mean_squared_error as scoring method, the GridSearchCV produced best parameters as estimators=200 and learning rate = 0.1.
+
+**Review results, evaluate models**
+
+Cross_val_score in sklearn module was used to evaluate the root mean-squared error, using a 5-fold cross -validation design.Based on the cross validation RMSE, the random forest and gradient boosting regressors outperforms the linear regression models.![image](https://user-images.githubusercontent.com/64564704/137858988-999e4e85-1b15-4ec7-aee6-573820a58565.png)
+
